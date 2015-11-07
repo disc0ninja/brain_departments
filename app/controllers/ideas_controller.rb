@@ -1,4 +1,9 @@
 class IdeasController < ApplicationController
+  before_action :set_idea, only: [:edit, :update, :show, :destroy]
+  #INDEX
+  def index
+    @ideas = Idea.all
+  end
 
   #NEW
   def new
@@ -7,7 +12,6 @@ class IdeasController < ApplicationController
 
   #EDIT
   def edit
-
   end
 
   #CREATE
@@ -24,11 +28,24 @@ class IdeasController < ApplicationController
   #UPDATE
   def update
 
+    if @idea.update(idea_params)
+      flash[:notice] = "Idea updated"
+      redirect_to idea_path(@idea)
+    else
+      render 'edit'
+    end
   end
 
   #SHOW
   def show
-    @idea =Idea.find(params[:id])
+
+  end
+
+  #DESTROY
+  def destroy
+    @idea.destroy
+    flash[:notice] = 'Idea has been deleted'
+    redirect_to ideas_path
   end
 
   #Define idea_params
@@ -36,5 +53,9 @@ class IdeasController < ApplicationController
     def idea_params
       params.require(:idea).permit(:title, :description)
     end
+
+  def set_idea
+    @idea = Idea.find(params[:id])
+  end
 
 end
