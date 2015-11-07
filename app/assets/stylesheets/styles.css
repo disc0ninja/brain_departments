@@ -1,0 +1,9 @@
+body{
+  background: url("style_images/back.png");
+}
+
+#navbar{
+  background-color: orange;
+  margin-top: 10%;
+
+}
