@@ -39,3 +39,16 @@ body{
 .content h4{
   margin-top: 25px;
 }
+.ideaContent{
+  background-color: #4E5862;
+  color: #03A9F4;
+  text-align: center;
+  margin-top: 10%;
+  margin-left: 25%;
+  margin-right: 30%;
+  border-radius: 10px;
+  font-size: 1.43em;
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-bottom: 5%;
+}
