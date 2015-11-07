@@ -6,7 +6,16 @@
   </head>
 
   <body>
-    <div id='navbar'><h1><%= link_to 'Home', root_path %></h1></div>
+    <div id='navbar'>
+      <div id='tab1'><%= link_to 'Home', root_path %></div>
+      <div class='tab'><%= link_to 'About', pages_about_path%></div>
+
+    </div>
+    <div class='clear'></div>
+    <div class='content'>
+      <h1>Welcome!</h1>
+      <p><h4>Thanks for stopping by!</h4> Please check out our about page if you'd like to learn more about Brain Departments. More content coming soon!..</p>
+    </div>
 
 
   </body>

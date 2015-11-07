@@ -3,7 +3,39 @@ body{
 }
 
 #navbar{
-  background-color: orange;
-  margin-top: 10%;
+  background-color: #EE8D18;
+  margin-top: 8%;
+  margin-left: 25%;
+  margin-right: 30%;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-radius: 25px;
+}
 
+#tab1{
+  float:left;
+  margin-left: 3%;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.clear{
+  clear:both;
+}
+
+.content{
+  background-color: #4E5862;
+  color: #03A9F4;
+  text-align: center;
+  margin-left: 25%;
+  margin-right: 30%;
+  border-radius: 10px;
+  font-size: 1.43em;
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-bottom: 5%;
+}
+
+.content h4{
+  margin-top: 25px;
 }
