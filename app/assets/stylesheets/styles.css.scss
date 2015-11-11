@@ -1,0 +1,90 @@
+$navbar-default-bg: #333333;
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+#logo{
+  float:left;
+  font-size:1.7em;
+  color: #ff9900;
+  text-transfform: uppercase;
+  letter-spacing: -1px;
+  font-weight: bold;
+}
+
+#logo:hover{
+  font-size: 2em;
+}
+
+/* .navbar-inner{
+  background: asset-url("images.jpg");
+  background-repeat: repeat-x;
+} */
+
+#topbar a{
+  color:#ff9900;
+}
+
+#topbar a:hover{
+  color:#777;
+}
+
+#dd a{
+  color: #666666;
+}
+
+#ddopts a{
+  color:666666;
+}
+
+.dropdown a:hover{
+  color:#ff9900;
+}
+
+.dropdown-toggle{
+  color:white;
+}
+
+.center{
+  text-align: center;
+}
+
+.jumbotron{
+  margin-top: 50px;
+  background-image: asset-url("yamaha.jpg");
+  background-size: cover;
+  height: 550px;
+}
+
+header{
+
+  text-align:center;
+  letter-spacing: -1px;
+  font-weight: bold;
+}
+
+header h1{
+
+  color: #666666;
+
+}
+
+footer{
+  margin-top: 45px;
+  padding-top: 5px;
+  border-top: 1px solid #eaeaea;
+  color: #777;
+
+}
+footer a:hover{
+  color: #222;
+}
+
+footer small{
+  float:left;
+}
+
+footer ul{
+  float:right;
+  list-style: none;
+}
