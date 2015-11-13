@@ -7,9 +7,13 @@ Rails.application.routes.draw do
   root 'pages#home'
   get 'pages/home', to: 'pages#home'
   get 'pages/about', to: 'pages#about'
-#   get 'ideas/index', to: 'ideas#index'
+  get 'pages/contact', to: 'pages#contact'
+  
+  get 'users/signup', to: 'users#signup'
+
 
   resources :ideas
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

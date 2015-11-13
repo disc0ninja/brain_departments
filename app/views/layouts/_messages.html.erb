@@ -1,5 +1,8 @@
-<% flash.each do |name, msg| %>
+
+  <% flash.each do |name, msg| %>
+  <div class="alert alert-success" role="alert">
     <ul>
       <li><%= msg %></li>
-  </ul>
+    </ul>
+  </div>
   <% end %>
