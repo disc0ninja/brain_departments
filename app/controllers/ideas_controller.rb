@@ -8,6 +8,7 @@ class IdeasController < ApplicationController
   #NEW
   def new
     @idea = Idea.new
+    
   end
 
   #EDIT
@@ -17,6 +18,7 @@ class IdeasController < ApplicationController
   #CREATE
   def create
     @idea = Idea.new(idea_params)
+    @idea.user = User.first
     if @idea.save
       flash[:success]="Department successfully saved!"
       redirect_to idea_path(@idea)
