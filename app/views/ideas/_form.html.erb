@@ -7,19 +7,33 @@
 </ul>
 <% end %>
 
+<div class='row'>
+  <div class='col-xs-12'>
 
-<%= form_for @idea do |f| %>
-  <p>
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
-  </p><br />
-  <p>
-    <%= f.label :description %>
-    <%= f.text_area :description %>
-  </p><br />
-  <p>
-    <%= f.submit %>
-    <%= link_to 'back', ideas_path %>
-  </p>
-</div>
+<%= form_for(@idea, :html => {class: "form-horizontal", role: "form"}) do |f| %>
+  <div class ='form-group'>
+    <div class='control-label col-sm-10'>
+    <%= f.label :title, class: "fix-label" %>
+      <div class='col-sm-600'>
+    <%= f.text_field :title, class: "form-control", placeholder: "Department Name", autofocus: true %>
+      </div>
+    </div>
+  </div>
+
+  <div class='form-group'>
+    <div class='control-label col-sm-10'>
+      <%= f.label :description, class: "fix-label" %>
+
+      <div class='col-sm-600'>
+      <%= f.text_area :description, rows: 10, class: "form-control", placeholder: "Department content goes here..."%>
+      </div>
+    </div>
+  </div>
+
+
+    <%= f.submit 'Create Department', class: ' btn btn-success btn-lrg'%>
+    <%= link_to 'Cancel', ideas_path, class: 'btn btn-warning btn-lrg'%>
+
 <% end %>
+  </div>
+</div>
