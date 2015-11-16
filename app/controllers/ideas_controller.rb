@@ -18,7 +18,7 @@ class IdeasController < ApplicationController
   def create
     @idea = Idea.new(idea_params)
     if @idea.save
-      flash[:notice]="Idea successfully saved!"
+      flash[:success]="Department successfully saved!"
       redirect_to idea_path(@idea)
     else
       render 'new'
@@ -29,7 +29,7 @@ class IdeasController < ApplicationController
   def update
 
     if @idea.update(idea_params)
-      flash[:notice] = "Idea updated"
+      flash[:success] = "Department updated"
       redirect_to idea_path(@idea)
     else
       render 'edit'
@@ -44,7 +44,7 @@ class IdeasController < ApplicationController
   #DESTROY
   def destroy
     @idea.destroy
-    flash[:notice] = 'Idea has been deleted'
+    flash[:danger] = 'Department has been deleted'
     redirect_to ideas_path
   end
 

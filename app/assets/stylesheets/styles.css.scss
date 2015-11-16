@@ -93,3 +93,8 @@ footer ul{
   float:right;
   list-style: none;
 }
+
+.table-hover tr:hover{
+  font-weight: bold;
+  background-color: #b5b0b0;
+}
