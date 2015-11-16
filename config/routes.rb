@@ -8,8 +8,11 @@ Rails.application.routes.draw do
   get 'pages/home', to: 'pages#home'
   get 'pages/about', to: 'pages#about'
   get 'pages/contact', to: 'pages#contact'
-  
-  get 'users/signup', to: 'users#signup'
+
+  get 'signup', to: 'users#new'
+  post 'users', to: 'users#create'
+  resources :users, except: [:new]
+
 
 
   resources :ideas
