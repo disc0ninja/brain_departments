@@ -60,13 +60,14 @@ class UsersController < ApplicationController
       redirect_to root_path
     end
   end
-  
+
   def require_admin
     if logged_in? and !current_user.admin?
       flash[:danger] = "You must be an admin"
       redirect_to root_path
+    end
   end
-  
+
 
 
 
