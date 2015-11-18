@@ -1,14 +1,10 @@
 module ApplicationHelper
 
-  BOOTSTRAP_FLASH_MSG = {
-    success: 'alert-success',
-    error: 'alert-error',
-    alert: 'alert-block',
-    notice: 'alert-info'
-  }
-
-  def bootstrap_class_for(flash_type)
-    BOOTSTRAP_FLASH_MSG.fetch(flash_type, flash_type.to_s)
+  def gravatar_for(user, options = {size: 80})
+    gravatar_id = Digest::MD5::hexdigest(user.email.downcase)
+    size = options[:size]
+    gravatar_url = "https://secure.gravatar.com/avatar/#{gravatar_id}?s=#{size}"
+    image_tag(gravatar_url, alt: user.username, class: "img-circle")
   end
 
 end

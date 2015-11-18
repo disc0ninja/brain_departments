@@ -1,7 +1,11 @@
 <div class='well well-lg'>
-  <h3><%= @idea.title %></h3>
   <div class='well'>
-    <%= @idea.description %>
+    <h3><%= @idea.title %></h3>
+    <small>Created by <%= link_to gravatar_for(@idea.user), user_path(@idea.user) %> <%= link_to @idea.user.username, user_path(@idea.user) %></small>
+    <div class='well'>
+      <%= @idea.description %>
+    </div>
+    <small>Last Updated <%= time_ago_in_words(@idea.updated_at) %> ago</small>
   </div>
-  <%= link_to 'All Departments', ideas_path, class: 'btn btn-primary btn-lrg'%>
+    <%= link_to 'All Departments', ideas_path, class: 'btn btn-primary btn-lrg'%>
 </div>

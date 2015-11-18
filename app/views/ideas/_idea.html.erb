@@ -1,0 +1,25 @@
+  <table class='table table-bordered table-hover'>
+    <th>Department Name</th>
+    <th>Description</th>
+    <th>Department Owner</th>
+    <th>Last Updated</th>
+    <th></th>
+    <th></th>
+    <th></th>
+
+    <% obj.each do |idea| %>
+    <tr>
+      <td><%= idea.title %></td>
+      <td><% if idea.description.length > 30 %>
+            <%=idea.description.first(30)%>...
+          <%else%>
+            <%=idea.description.first(30)%>
+          <%end%></td>
+      <td><%= idea.user.username if idea.user %></td>
+      <td><%= time_ago_in_words(idea.updated_at) %> ago </td>
+      <td><%= link_to 'Edit', edit_idea_path(idea) %></td>
+      <td><%= link_to 'View', idea_path(idea) %></td>
+      <td><%= link_to 'Delete', idea_path(idea), method: :delete, data: {confirm: 'Delete this department permanently?'} %>
+    </tr>
+    <% end %>
+  </table>
