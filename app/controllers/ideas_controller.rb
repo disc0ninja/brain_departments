@@ -1,5 +1,7 @@
 class IdeasController < ApplicationController
   before_action :set_idea, only: [:edit, :update, :show, :destroy]
+  before_action :require_user, except: [:index, :show]
+  before_action :require_same_user, only: [:edit, :update, :destroy]
   #INDEX
   def index
     @ideas = Idea.all
@@ -8,7 +10,7 @@ class IdeasController < ApplicationController
   #NEW
   def new
     @idea = Idea.new
-    
+
   end
 
   #EDIT
@@ -18,7 +20,7 @@ class IdeasController < ApplicationController
   #CREATE
   def create
     @idea = Idea.new(idea_params)
-    @idea.user = User.first
+    @idea.user = current_user
     if @idea.save
       flash[:success]="Department successfully saved!"
       redirect_to idea_path(@idea)
@@ -55,6 +57,13 @@ class IdeasController < ApplicationController
     def idea_params
       params.require(:idea).permit(:title, :description)
     end
+
+  #define require same
+  def require_same_user
+    if current_user != @idea.user
+      flash[:danger] = "You must be a department owner to do that"
+    end
+  end
 
   def set_idea
     @idea = Idea.find(params[:id])

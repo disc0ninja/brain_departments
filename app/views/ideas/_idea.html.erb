@@ -16,10 +16,12 @@
             <%=idea.description.first(30)%>
           <%end%></td>
       <td><%= idea.user.username if idea.user %></td>
-      <td><%= time_ago_in_words(idea.updated_at) %> ago </td>
-      <td><%= link_to 'Edit', edit_idea_path(idea) %></td>
+      <td><%= time_ago_in_words(idea.updated_at) %> ago</td>
       <td><%= link_to 'View', idea_path(idea) %></td>
-      <td><%= link_to 'Delete', idea_path(idea), method: :delete, data: {confirm: 'Delete this department permanently?'} %>
+      <% if logged_in? && current_user == idea.user %>
+        <td><%= link_to 'Edit', edit_idea_path(idea) %></td>
+        <td><%= link_to 'Delete', idea_path(idea), method: :delete, data: {confirm: 'Delete this department permanently?'} %></td>
+      <% end %>
     </tr>
     <% end %>
   </table>
