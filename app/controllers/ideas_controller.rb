@@ -60,7 +60,7 @@ class IdeasController < ApplicationController
 
   #define require same
   def require_same_user
-    if current_user != @idea.user
+    if current_user != @idea.user and !current_user.admin?
       flash[:danger] = "You must be a department owner to do that"
     end
   end

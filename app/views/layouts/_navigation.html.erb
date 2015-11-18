@@ -37,8 +37,8 @@
         <% if logged_in? %>
           <li class='dropdown'><%= link_to 'Logout', logout_path, method: :delete %></li>
         <li>
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" id='dd'><%= gravatar_for(current_user, size: 15) %> | <%= current_user.username %><span class="caret"></span></a>
-       
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" id='dd'><%= 'Admin' if current_user.admin? %><%= gravatar_for(current_user, size: 15) %> | <%= current_user.username %><span class="caret"></span></a>
+
             <ul class='dropdown-menu'>
               <li><%= link_to 'Edit', edit_user_path(current_user) %></li>
               <li><%= link_to 'View Profile', user_path(current_user) %></li>
