@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
   
   def home
-    redirect_to departments_path if logged_in?
+    redirect_to ideas_path if logged_in?
   end
   
   def about

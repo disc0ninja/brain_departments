@@ -9,7 +9,7 @@
     <tr>
       <td><%= link_to gravatar_for(user), user_path(user) %></td>
       <td><%= link_to user.username, user_path(user)%></td>
-      <td><%= pluralize(user.departments.count, 'department') if user.departments %></td>
+      <td><%= pluralize(user.ideas.count, 'idea') if user.ideas %></td>
       <% if logged_in? and current_user.admin? %>
       <td><%= link_to "Delete User", user_path(user), method: :delete, data: {confirm: "Do you really want to delete user and all departments? THIS CANNOT BE UNDONE"} %></td>
       <% end %>

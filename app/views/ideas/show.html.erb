@@ -1,0 +1,19 @@
+<div class='well well-lg'>
+  <div class='well'>
+    <h3><%= @idea.title %></h3>
+    <div align='right'>
+      <small>Created by <%= link_to gravatar_for(@idea.user, size: 10), user_path(@idea.user) %> <%= link_to @idea.user.username, user_path(@idea.user) %></small>
+    </div>
+    <div class='well'>
+      <%= @idea.description %>
+    </div>
+    <small>Last Updated <%= time_ago_in_words(@idea.updated_at) %> ago</small>
+    <div align='right'>
+     <% if logged_in? && (current_user == @idea.user || current_user.admin?) %>
+      <%= link_to 'Edit', edit_idea_path(@idea), class: 'btn btn-warning btn-sm' %>
+      <%= link_to 'Delete', idea_path(@idea), method: :delete, data: {confirm: 'Delete this department permanently?'}, class:'btn btn-danger btn-sm' %>
+      <% end %>
+    </div>
+  </div>
+    <%= link_to 'All Departments', ideas_path, class: 'btn btn-primary btn-lrg'%>
+</div>
