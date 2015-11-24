@@ -19,7 +19,7 @@ Rails.application.routes.draw do
 
 
 
-  resources :ideas
+  resources :departments
 
 
   # Example of regular route:
