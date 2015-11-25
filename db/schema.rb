@@ -11,25 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151124231808) do
-
-  create_table "comments", force: :cascade do |t|
-    t.text     "comment"
-    t.datetime "created_at"
-    t.integer  "user_id"
-  end
+ActiveRecord::Schema.define(version: 20151125000125) do
 
   create_table "departments", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "user_id"
-  end
-
-  create_table "dumbtable", force: :cascade do |t|
-    t.string   "title"
-    t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
