@@ -55,7 +55,7 @@ class DepartmentsController < ApplicationController
   #Define department_params
   private
     def department_params
-      params.require(:department).permit(:title, :description)
+      params.require(:department).permit(:title, :description, category_ids: [])
     end
 
   #define require same

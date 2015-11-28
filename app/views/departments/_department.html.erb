@@ -6,6 +6,7 @@
     <th></th>
     <th></th>
     <th></th>
+    <th></th>
 
     <% obj.each do |department| %>
     <tr>
@@ -18,6 +19,11 @@
       <td><%= department.user.username if department.user %></td>
       <td><%= time_ago_in_words(department.updated_at) %> ago</td>
       <td><%= link_to 'View', department_path(department) %></td>
+      <% if department.categories.any? %>
+        <td><%= render department.categories %> </td>
+      <% else %>
+        <td></td>
+      <% end %>
       <% if logged_in? && (current_user == department.user || current_user.admin?) %>
         <td><%= link_to 'Edit', edit_department_path(department) %></td>
         <td><%= link_to 'Delete', department_path(department), method: :delete, data: {confirm: 'Delete this department permanently?'} %></td>

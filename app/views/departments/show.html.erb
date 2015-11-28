@@ -7,7 +7,14 @@
     <div class='well'>
       <%= @department.description %>
     </div>
-    <small>Last Updated <%= time_ago_in_words(@department.updated_at) %> ago</small>
+    <div align='right'>
+      <small>Last Updated <%= time_ago_in_words(@department.updated_at) %> ago</small>
+    </div>
+    <div align='left'>
+      <% if @department.categories.any? %>
+        <small>Categories: <%= render @department.categories %></small>
+      <% end %>
+    </div>
     <div align='right'>
      <% if logged_in? && (current_user == @department.user || current_user.admin?) %>
       <%= link_to 'Edit', edit_department_path(@department), class: 'btn btn-warning btn-sm' %>
