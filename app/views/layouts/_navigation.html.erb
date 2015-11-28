@@ -16,15 +16,30 @@
       <ul class="nav navbar-nav" id="topbar">
         <li><%= link_to 'New', new_department_path %></li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" id='dd'>More.. <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" id='dd'>View <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><%= link_to 'New Department ', new_department_path %></li>
-            <li><%= link_to 'All Departments', departments_path %></li>
+            <li><%= link_to 'All Categories ', categories_path %></li>
+            <% Category.all.each do |category| %>
+            <li><%= link_to "#{category.name}", category_path(category) %></li>
+            <% end %>
+            <% if logged_in? and current_user.admin? %>
+              <li><%= link_to "Create new Category", new_category_path %></li>
+            <% end %>
+            <li role="separator" class="divider"></li>
+            <% if logged_in? %>
             <li><%= link_to 'All Users', users_path %></li>
             <li role="separator" class="divider"></li>
+            <li><%= link_to 'Edit', edit_user_path(current_user) %></li>
+            <li><%= link_to 'View Profile', user_path(current_user) %></li>
             <li role="separator" class="divider"></li>
-            <li><%= link_to 'About', pages_about_path %></li>
             <li><%= link_to 'Contact', pages_contact_path %></li>
+            <% else %>
+            <li role="separator" class="divider"></li>
+            <li><%= link_to 'Login', login_path%></li>
+            <li><%= link_to 'Register', signup_path%></li>
+            <li role="separator" class="divider"></li>
+            <% end %>
+            <li><%= link_to 'About', pages_about_path %></li>
           </ul>
         </li>
       </ul>
